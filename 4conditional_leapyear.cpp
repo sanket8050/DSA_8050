@@ -1,6 +1,15 @@
-
+// Topic: Conditional Statements, Leap Year Check
+// Question: Write a program to check whether a given year is a leap year or not using conditional statements. Implement two different approaches for the leap year check.
+// This code demonstrates two methods to determine if a year is a leap year.
+// The first uses nested if-else, the second uses sequential if-else if-else.
 
 // // find leap year
+
+
+// 2020: Divisible by 4, not by 100 → leap year.
+// 1900: Divisible by 4, by 100, but not by 400 → not leap year.
+// 2000: Divisible by 4, by 100, and by 400 → leap year.
+
 
 #include<iostream>
 using namespace std;

@@ -1,3 +1,8 @@
+// Topic: Arithmetic Operators in C++
+// Question: Demonstrate the use of basic arithmetic operators (+, -, *, /, %) in C++. Show how to perform arithmetic operations on variables and print the results.
+// This code shows simple arithmetic operations using double variables.
+// It also includes commented examples of type casting and ASCII value usage.
+
 //Operators [/,*,-,+,%]
 // Arithmatic operation
 
