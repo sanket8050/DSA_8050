@@ -160,3 +160,46 @@ int main() {
     cout << "\nLength: " << ans.size() << endl;
     return 0;
 }
+
+
+
+// maped
+
+vector<int> intersect(vector<int>& nums1, vector<int>& nums2) {
+    unordered_map<int, int> freq;
+    vector<int> result;
+
+    for (int num : nums1)
+        freq[num]++;
+
+    for (int num : nums2) {
+        if (freq[num] > 0) {
+            result.push_back(num);
+            freq[num]--;
+        }
+    }
+
+    return result;
+}
+
+
+/*
+nums1 = [1, 2, 2, 3]
+nums2 = [2, 2, 3, 4]
+
+freq: {
+  1 → 1,
+  2 → 2,
+  3 → 1
+}
+
+Loop over nums2:
+- 2 → freq[2] > 0 → add 2 → freq[2] = 1
+- 2 → freq[2] > 0 → add 2 → freq[2] = 0
+- 3 → freq[3] > 0 → add 3 → freq[3] = 0
+- 4 → freq[4] = 0 → skip
+
+Result: [2, 2, 3]
+
+
+*/
