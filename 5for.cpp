@@ -15,9 +15,6 @@ FOR LOOP STRUCTURE:
 - Increment: i*2 (multiply i by 2 each iteration)
 
 
-
-
-
 LOOP EXECUTION:
 - i starts at 1
 - Condition: 1 <= 10 (true) → print 2*1 = 2
