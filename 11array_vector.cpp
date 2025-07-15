@@ -70,3 +70,31 @@ int main() {
 	}                                                                   																		
     return 0;                                
 }
+
+
+//  vector
+
+// vector<int> v;
+// v.reserve(1000); // allocates memory for 1000 elements
+
+// for (int i = 0; i < 1000; i++) {
+//     v.push_back(i); // NO resizing occurs during these pushes
+// }
+
+// int n = 5;
+// vector<int> v(n);   // initializes vector of size 5 → [0, 0, 0, 0, 0]
+// v.push_back(6);     // adds 6 to the end
+
+// - Size: 6            // 5 initial + 1 pushed
+// - Capacity: 10       // capacity doubled internally
+// - Elements: [0 0 0 0 0 6]
+
+
+// 🟢 Amortized O(1)
+// Why?
+// Although resizing is costly (O(n)), it happens rarely (once every time the capacity doubles).
+
+// So over many push_back() calls, the average time per call stays O(1).
+
+// This is known as amortized time complexity.
+
