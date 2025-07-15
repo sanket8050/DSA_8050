@@ -1,4 +1,46 @@
-// introduction to vector
+/*
+================================================================================
+TITLE: Vector Introduction and Basic Operations
+================================================================================
+
+DESCRIPTION:
+This program demonstrates the basic usage of C++ STL vector container.
+It shows vector declaration, size, capacity, and dynamic resizing properties.
+
+LOGIC:
+VECTOR PROPERTIES:
+- Dynamic array that can resize automatically
+- Elements are stored in contiguous memory
+- Capacity doubles when more space is needed
+- Initial elements are zero-initialized
+
+VECTOR OPERATIONS:
+1. Declaration: vector<int> arr(n) - creates vector with n elements (all 0)
+2. push_back(6) - adds element at the end
+3. size() - returns number of elements
+4. capacity() - returns allocated memory space
+5. empty() - returns true if vector is empty
+
+EXAMPLE:
+Input: n = 5
+Output: 
+- Size: 6 (5 initial + 1 pushed)
+- Capacity: 10 (doubled from 5)
+- Elements: [0 0 0 0 0 6]
+
+MEMORY MANAGEMENT:
+- Initial capacity = n
+- When push_back exceeds capacity, new capacity = 2 * old_capacity
+- This ensures amortized O(1) time for push_back operations
+
+TIME COMPLEXITY:
+- push_back: O(1) amortized
+- size/capacity/empty: O(1)
+
+SPACE COMPLEXITY: O(n) where n is the number of elements
+
+================================================================================
+*/
 
 #include <iostream>
 #include<vector>

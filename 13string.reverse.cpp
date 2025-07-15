@@ -1,3 +1,40 @@
+/*
+================================================================================
+TITLE: String Manipulation Functions
+================================================================================
+
+DESCRIPTION:
+This program contains multiple string manipulation functions:
+1. getlength() - calculates string length
+2. reversestring() - reverses a string in-place
+3. replacespace() - replaces spaces with underscores
+
+LOGIC:
+GETLENGTH FUNCTION:
+- Iterate through string until null terminator '\0'
+- Count characters and return length
+
+REVERSESTRING FUNCTION:
+- Use two-pointer technique (i and j)
+- i starts from beginning, j from end
+- Swap characters at i and j positions
+- Move i forward, j backward until i >= j
+
+REPLACESPACE FUNCTION:
+- Iterate through string character by character
+- If character is space ' ', replace with underscore '_'
+
+EXAMPLE:
+Input: "hello world"
+After reverse: "dlrow olleh"
+After space replacement: "hello_world"
+
+TIME COMPLEXITY: O(n) where n is string length
+SPACE COMPLEXITY: O(1) - in-place operations
+
+================================================================================
+*/
+
 #include<iostream>
 using namespace std;
 int getlength(char name[]){

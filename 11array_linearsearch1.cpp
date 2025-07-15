@@ -1,3 +1,37 @@
+/*
+================================================================================
+TITLE: Count Ones and Zeros in Array
+================================================================================
+
+DESCRIPTION:
+This program counts the number of ones and zeros in a binary array.
+It demonstrates array traversal and conditional counting using if-else statements.
+
+LOGIC:
+COUNTING ALGORITHM:
+- Initialize counters: countOne = 0, countZeros = 0
+- Traverse the array using a for loop
+- For each element:
+  - If element == 1: increment countOne
+  - Else: increment countZeros
+- Print both counts at the end
+
+EXAMPLE:
+Input: arr = [1,1,1,1,1,0,0,0,0,1,1,0]
+Process:
+- Traverse array and count 1s and 0s
+- countOne = 7 (seven 1s)
+- countZeros = 5 (five 0s)
+Output:
+"no of ones 7"
+"no of zero 5"
+
+TIME COMPLEXITY: O(n)
+SPACE COMPLEXITY: O(1)
+
+================================================================================
+*/
+
 #include<iostream>
 using namespace std;
 

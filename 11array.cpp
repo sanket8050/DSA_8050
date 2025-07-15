@@ -1,3 +1,55 @@
+/*
+================================================================================
+TITLE: Array Operations and Algorithms Collection
+================================================================================
+
+DESCRIPTION:
+This program contains multiple array operations and algorithms including:
+1. Basic array initialization and access
+2. User input array handling
+3. Negative-positive number segregation
+4. Common elements in three sorted arrays
+
+LOGIC:
+BASIC ARRAY OPERATIONS:
+- Array initialization: int arr[] = {1,2,3,4,5,6,7}
+- Array access: arr[index]
+- Array traversal: using for loops
+- User input: cin >> arr[i]
+
+NEGATIVE-POSITIVE SEGREGATION:
+- Use two-pointer technique (lowIndex, highIndex)
+- Move negative numbers to left, positive to right
+- Algorithm:
+  - If arr[lowIndex] < 0: lowIndex++
+  - If arr[highIndex] > 0: highIndex--
+  - Else: swap elements and move both pointers
+
+COMMON ELEMENTS IN THREE SORTED ARRAYS:
+- Use three pointers (i, j, k) for each array
+- Compare elements from all three arrays
+- If all equal: print and increment all pointers
+- Else: increment pointer of smallest element
+
+ALGORITHM EXAMPLES:
+NEGATIVE-POSITIVE SEGREGATION:
+Input: [2,4,-8,6,-7,4,-6]
+Output: [-8,-7,-6,2,4,4,6]
+
+COMMON ELEMENTS:
+Input: [1,2,3,14,15], [11,12,13,14,15,16], [14,15,17,18,22,34,45]
+Output: 14 15
+
+TIME COMPLEXITY:
+- Basic operations: O(n)
+- Negative-positive segregation: O(n)
+- Common elements: O(n1 + n2 + n3)
+
+SPACE COMPLEXITY: O(1) for all operations
+
+================================================================================
+*/
+
 #include<iostream>
 using namespace std;
 

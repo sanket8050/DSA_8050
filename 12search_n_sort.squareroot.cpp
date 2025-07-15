@@ -1,4 +1,43 @@
-// SQAURE ROOT FINDING OF ANY NUMBER  [NEARER VALUE]---------------------------------------------------------- 
+/*
+================================================================================
+TITLE: Square Root Calculator using Binary Search
+================================================================================
+
+DESCRIPTION:
+This program finds the square root of a number using binary search algorithm.
+It includes both integer square root and decimal precision square root calculation.
+Also includes a quotient finder using similar binary search approach.
+
+LOGIC:
+INTEGER SQUARE ROOT:
+- Use binary search in range [0, n]
+- If mid*mid == target: return mid
+- If mid*mid > target: search in left half
+- If mid*mid < target: search in right half, store mid as potential answer
+- Return the largest integer whose square is less than or equal to target
+
+DECIMAL PRECISION:
+- Start with integer square root as base
+- Use step size starting from 0.1
+- For each precision level, find the largest number whose square ≤ target
+- Reduce step size by factor of 10 for each precision level
+
+QUOTIENT FINDER:
+- Similar to square root but finds quotient = dividend/divisor
+- Search in range [0, dividend]
+- If mid*divisor == dividend: return mid
+- If mid*divisor > dividend: search left
+- If mid*divisor < dividend: search right, store mid as answer
+
+EXAMPLE:
+Input: n = 25, precision = 2
+Output: 5.0 (integer), 5.00 (with precision)
+
+TIME COMPLEXITY: O(log n) for integer part, O(precision) for decimal part
+SPACE COMPLEXITY: O(1)
+
+================================================================================
+*/
 
 #include<iostream>
 using namespace std;

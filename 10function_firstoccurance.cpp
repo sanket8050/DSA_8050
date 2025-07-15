@@ -1,5 +1,51 @@
 
-// finding the fist ocurance of elment----------------------------------------------------------
+/*
+================================================================================
+TITLE: First and Last Occurrence of Element in Sorted Array
+================================================================================
+
+DESCRIPTION:
+This program demonstrates how to find the first and last occurrence of an
+element in a sorted array using both custom binary search and STL functions.
+It includes commented implementations of custom algorithms and active STL usage.
+
+LOGIC:
+CUSTOM BINARY SEARCH APPROACH (commented):
+FIRST OCCURRENCE:
+- Use binary search with modification
+- When target == v[mid]: store index and search left half (end = mid-1)
+- Continue until start > end
+- Return the leftmost occurrence
+
+LAST OCCURRENCE:
+- Use binary search with modification  
+- When target == v[mid]: store index and search right half (start = mid+1)
+- Continue until start > end
+- Return the rightmost occurrence
+
+STL APPROACH (active):
+- lower_bound(): finds first occurrence
+- upper_bound(): finds position after last occurrence
+- Count = upper_bound - lower_bound
+
+ALGORITHM STEPS:
+1. Use lower_bound to find first occurrence
+2. Use upper_bound to find position after last occurrence
+3. Calculate last index: upper_bound - 1
+4. Calculate count: upper_bound - lower_bound
+
+EXAMPLE:
+Input: v = [1,2,3,4,4,4,5,6], target = 4
+Output:
+- First occurrence: index 3
+- Last occurrence: index 5
+- Count: 3
+
+TIME COMPLEXITY: O(log n)
+SPACE COMPLEXITY: O(1)
+
+================================================================================
+*/
 //
 //#include<iostream>
 //#include<vector>
@@ -42,6 +88,8 @@
 //--------------------------------------------------------------------------------------------------------------
 
 // finding the last ocurance of element----------------------------------------------------------
+
+
 
 //#include<iostream>
 //#include<vector>
@@ -86,29 +134,30 @@
 //-------------------inbuilt function --------------------- 
 
 
-#include<iostream>
-#include<vector>
-#include<algorithm>
+#include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
-int main(){
-	
-	vector<int> v{1,2,3,4,4,5,5,6,7};
-	int target=4;
-	
-	//----------first occurance--------
-	int ans=lower_bound(v.begin(),v.end(),target);
-	cout<<(ans-v.begin())<<endl;
-	
-	//----------last occurance---------
-	int ans2 =upper_bound(v.begin(),v.end(),target);
-	
-	cout<<(ans2-v.begin())<<endl;
-	
-	
-	//-----------num ber of occurance of element------
-	
-	int number=ans2-ans;
-	cout<<number;
+int main() {
+    vector<int> v = {1, 2, 3, 4, 4, 4, 5, 6};
+    int target = 4;
+
+    auto first = lower_bound(v.begin(), v.end(), target);
+    auto last = upper_bound(v.begin(), v.end(), target);
+
+    int firstIndex = first - v.begin();       // ✅ proper way
+    int lastIndex = last - v.begin() - 1;     // ✅ last actual 4
+    int count = last - first;                 // ✅ number of times 4 appears
+
+    if (count > 0) {
+        cout << "First occurrence of " << target << " is at index: " << firstIndex << endl;
+        cout << "Last occurrence of " << target << " is at index: " << lastIndex << endl;
+        cout << "Number of times " << target << " appears: " << count << endl;
+    } else {
+        cout << "Element " << target << " not found in the vector." << endl;
+    }
+
+    return 0;
 }
 

@@ -1,4 +1,40 @@
-//-------------------------BINARY SEARCH--------------------------------8
+/*
+================================================================================
+TITLE: Binary Search Algorithm
+================================================================================
+
+DESCRIPTION:
+This program implements the binary search algorithm to find a target element
+in a sorted array. It includes both custom implementation and STL binary_search
+function usage.
+
+LOGIC:
+BINARY SEARCH ALGORITHM:
+- Works only on sorted arrays
+- Compare target with middle element
+- If target == middle: return middle index
+- If target < middle: search in left half (end = mid-1)
+- If target > middle: search in right half (start = mid+1)
+- Continue until start > end (element not found)
+
+ALGORITHM STEPS:
+1. Initialize start = 0, end = size-1
+2. While start <= end:
+   - Calculate mid = (start + end) / 2
+   - If arr[mid] == target: return mid
+   - If target < arr[mid]: end = mid - 1
+   - If target > arr[mid]: start = mid + 1
+3. Return -1 if not found
+
+EXAMPLE:
+Input: arr = [1,2,4,5,6,7,8,9,10], target = 5
+Output: 3 (5 is at index 3)
+
+TIME COMPLEXITY: O(log n)
+SPACE COMPLEXITY: O(1)
+
+================================================================================
+*/
 
 #include <iostream>
 #include <cstdio>
