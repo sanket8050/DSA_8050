@@ -57,57 +57,100 @@ SPACE COMPLEXITY: O(min(n,m)) for result storage
 
 #include<iostream>
 #include<vector>
+#include<unordered_map>
 using namespace std;
 
-int main(){
-    vector<int> arr = {1, 3, 2, 4, 5, 6};
-    vector<int> brr = {1, 3, 6, 9};
-    vector<int> ans;
+// int main(){
+//     vector<int> arr = {1, 3, 2, 4, 5, 6};
+//     vector<int> brr = {1, 3, 6, 9};
+//     vector<int> ans;
     
-    cout << "Array 1: ";
-    for(int num : arr) cout << num << " ";
-    cout << endl;
+//     cout << "Array 1: ";
+//     for(int num : arr) cout << num << " ";
+//     cout << endl;
     
-    cout << "Array 2: ";
-    for(int num : brr) cout << num << " ";
-    cout << endl;
+//     cout << "Array 2: ";
+//     for(int num : brr) cout << num << " ";
+//     cout << endl;
     
-    // Find intersection
-    for(int i = 0; i < arr.size(); i++){
-        int element = arr[i];
+//     // Find intersection
+//     for(int i = 0; i < arr.size(); i++){
+//         int element = arr[i];
         
-        for(int j = 0; j < brr.size(); j++){
-            if(element == brr[j]){
-                ans.push_back(element);
-                break;  // Found match, no need to check further
+//         for(int j = 0; j < brr.size(); j++){
+//             if(element == brr[j]){
+//                 ans.push_back(element);
+//                 break;  // Found match, no need to check further
+//             }
+//         }
+//     }
+    
+//     cout << "Intersection: ";
+//     for(int i = 0; i < ans.size(); i++){
+//         cout << ans[i] << " ";
+//     }
+//     cout << endl;
+    
+//     // Test with different arrays
+//     cout << "\nTest cases:" << endl;
+    
+//     vector<int> test1 = {1, 2, 3, 4};
+//     vector<int> test2 = {3, 4, 5, 6};
+//     vector<int> result1;
+    
+//     for(int i = 0; i < test1.size(); i++){
+//         for(int j = 0; j < test2.size(); j++){
+//             if(test1[i] == test2[j]){
+//                 result1.push_back(test1[i]);
+//                 break;
+//             }
+//         }
+//     }
+    
+//     cout << "Test 1: ";
+//     for(int num : result1) cout << num << " ";
+//     cout << endl;
+// }
+
+
+//mapiing apeoach
+
+
+    int intersection(const vector<int>&arr1,const vector<int>&arr2){
+        unordered_map<int,int>freq;
+        vector<int>ans;
+        ans.reserve(min(arr1.size(), arr2.size())); // Reserve space  algorithmic aproach
+        for(int x: arr1){
+            freq[x]++;
+        }
+
+        for(int y : arr2){
+            if(freq[y]-- > 0){
+                ans.push_back(y);
+                
             }
         }
-    }
-    
-    cout << "Intersection: ";
-    for(int i = 0; i < ans.size(); i++){
-        cout << ans[i] << " ";
-    }
-    cout << endl;
-    
-    // Test with different arrays
-    cout << "\nTest cases:" << endl;
-    
-    vector<int> test1 = {1, 2, 3, 4};
-    vector<int> test2 = {3, 4, 5, 6};
-    vector<int> result1;
-    
-    for(int i = 0; i < test1.size(); i++){
-        for(int j = 0; j < test2.size(); j++){
-            if(test1[i] == test2[j]){
-                result1.push_back(test1[i]);
-                break;
-            }
+        for(int d =0;d<ans.size();d++){
+            cout<<ans[d]<<" ";
         }
     }
-    
-    cout << "Test 1: ";
-    for(int num : result1) cout << num << " ";
-    cout << endl;
+
+int main(){
+    vector<int>arr1 = {1,2,3,4,54,32,1,1,2};
+    vector<int>arr2 = {2,3,1,3,4};
+
+    intersection(arr1,arr2);
 }
 
+
+// vector<int> v;
+// v.push_back(1);  // Capacity: 1
+// v.push_back(2);  // Capacity: 2 (reallocated)
+// v.push_back(3);  // Capacity: 4 (reallocated, doubled)
+// v.push_back(4);  // Capacity: 4 (no reallocation)
+// v.push_back(5);  // Capacity: 8 (reallocated, doubled again)
+// Each reallocation involves:
+
+// Allocating new memory (usually double the size)
+// Copying all existing elements
+// Deallocating old memory
