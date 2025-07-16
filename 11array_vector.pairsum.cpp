@@ -58,6 +58,7 @@ SPACE COMPLEXITY: O(1) - only using variables
 
 #include<iostream>
 #include<vector>
+#include<unordered_map>
 using namespace std;
 
 int main(){
@@ -108,6 +109,22 @@ int main(){
             if(vec[i] + vec[j] == target){
                 cout << vec[i] << ":" << vec[j] << endl;
             }
+            
         }
     }
+}
+
+
+
+int pairsum(const vector<int>arr,int target){
+    unordered_map<int,int>map;
+
+    for(int x : arr){
+        int comp = target - arr[x];
+        if(map.find(comp)!=map.end()){
+            cout<<"{"<<map[comp]<<","<<arr[x]<<"}";
+        }
+        map[arr[x]] = x;
+    }
+    return {};
 }
