@@ -39,6 +39,12 @@ TIME COMPLEXITY:
 
 SPACE COMPLEXITY: O(n) where n is the number of elements
 
+
+Use dynamic memory when:
+    Input size is huge
+    Data size is not known beforehand
+    You’re creating expandable or recursive structures
+
 ================================================================================
 */
 
