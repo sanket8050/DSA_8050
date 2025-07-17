@@ -1,54 +1,67 @@
+ 
+
 #include <iostream>
-#include <vector>
 #include <bitset>
+#include <vector>
 using namespace std;
 
-const int NUM_BOTTLES = 1000;
-const int NUM_PRISONERS = 10;
+int main() {
+    int poisoned_bottle = 723;  // Suppose bottle #723 is poisoned
 
-// Function to assign each bottle's poison to prisoners based on its binary
-void assignBottlesToPrisoners(vector<vector<int>>& prisoner_bottles) {
-    for (int bottle = 0; bottle < NUM_BOTTLES; ++bottle) {
-        bitset<NUM_PRISONERS> binary(bottle);
-        for (int i = 0; i < NUM_PRISONERS; ++i) {
-            if (binary[i]) {
-                prisoner_bottles[i].push_back(bottle); // Give drop to prisoner i
+    // Step 1: Record which rats drink from which bottles
+        vector<bool> rat_died(10, false);  // 10 rats
+
+    for (int bottle = 0; bottle < 1000; bottle++) {
+        bitset<10> mask(bottle);
+        if (bottle == poisoned_bottle) {
+            for (int rat = 0; rat < 10; rat++) {
+                if (mask[rat]) {
+                    rat_died[rat] = true;  // This rat dies
+                }
             }
         }
     }
-}
 
-// Simulate death based on which bottle is actually poisoned
-bitset<NUM_PRISONERS> simulateDeath(int poisonedBottle) {
-    return bitset<NUM_PRISONERS>(poisonedBottle);
-}
-
-int main() {
-    vector<vector<int>> prisoner_bottles(NUM_PRISONERS);
-    assignBottlesToPrisoners(prisoner_bottles);
-
-    int poisonedBottle;
-    cout << "Enter poisoned bottle number (0 - 999): ";
-    cin >> poisonedBottle;
-
-    if (poisonedBottle < 0 || poisonedBottle >= NUM_BOTTLES) {
-        cout << "Invalid bottle number!" << endl;
-        return 1;
+    // Step 2: Reconstruct poisoned bottle from dead rats
+    bitset<10> result;
+    for (int i = 0; i < 10; i++) {
+        if (rat_died[i]) {
+            result.set(i);
+        }
     }
 
-    // Simulate which prisoners die
-    bitset<NUM_PRISONERS> deadPrisoners = simulateDeath(poisonedBottle);
+    cout << "Dead rats pattern: " << result << endl;
+    cout << "Poisoned bottle was: " << result.to_ulong() << endl;
 
-    cout << "\nPrisoners who died (1 = dead, 0 = alive): " << deadPrisoners << endl;
+    return 0;
+}
 
-    // Recover poisoned bottle from dead prisoners
-    int identifiedBottle = (int)deadPrisoners.to_ulong();
-    cout << "Identified poisoned bottle is: " << identifiedBottle << endl;
+// 📋 Summary of bitset methods:
+// Method	What it does
+// set(i)	Sets bit i to 1
+// reset(i)	Sets bit i to 0
+// flip(i)	Toggles bit i (0→1, 1→0)
+// test(i)	Returns true if bit i is 1
+// to_ulong()	Converts the bitset to an integer
+// to_string()	Converts bitset to string of bits
 
-    if (identifiedBottle == poisonedBottle) {
-        cout << "✅ Correct! Poisoned bottle identified successfully.\n";
-    } else {
-        cout << "❌ Incorrect. Something went wrong.\n";
+
+#include <iostream>
+#include <bitset>
+#include <vector>
+#include <string>
+using namespace std;
+
+int main() {
+    vector<string> arr;
+
+    for (int i = 0; i < 1000; i++) {
+        bitset<10> binary(i);
+        arr.push_back(binary.to_string());
+    }
+
+    for (int i = 0; i < arr.size(); i++) {
+        cout << arr[i] << ", ";
     }
 
     return 0;
