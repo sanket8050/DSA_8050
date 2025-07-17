@@ -40,6 +40,7 @@ SPACE COMPLEXITY: O(1)
 #include <cstdio>
 #include<vector>
 #include<algorithm>
+
 using namespace std;
 
 int binarySearch(int arr[],int size,int target){
