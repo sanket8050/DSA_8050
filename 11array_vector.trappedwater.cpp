@@ -107,8 +107,8 @@ int main(){
     for(int height : test1) cout << height << " ";
     cout << "→ Water: " << trappedWater(test1) << endl;
     
-    vector<int> test2 = {4, 2, 0, 3, 2, 5};
+    vector<int> test2 = {1,0,8,0,6,0,2,0,5,0,4,0,8,0,3,0,7};
     cout << "Test 2: ";
     for(int height : test2) cout << height << " ";
-    cout << "→ Water: " << trappedWater(test2) << endl;
+    cout << "→ Waterxxx: " << trappedWater(test2) << endl;
 } 
