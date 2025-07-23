@@ -87,7 +87,7 @@ int trappedWater(vector<int>& arr){
     return total_water;
 }
 
-int main(){
+int mainc(){
     vector<int> arr = {3, 2, 1, 0, 1, 2, 3};
     
     cout << "Height array: ";
@@ -143,3 +143,50 @@ public:
         return total_area;
     }
 };
+
+
+
+
+
+
+
+
+//--------traped water better approach--------------
+
+int trapped(const vector<int>arr){
+    
+    int n = arr.size();   
+    int lmax = arr[0];
+    int rmax = arr[n-1]; 
+    int i = 1;int  r = n-2;
+    int total = 0;
+
+    while(i <= r){
+        if(arr[i]<arr[r]){
+            if(lmax < arr[i]){
+                lmax = arr[i];
+            }
+            else{
+                total+= lmax-arr[i];
+            }
+            i++;
+        }
+        else{
+            if(rmax < arr[r]){
+                rmax = arr[r];
+            }
+            else{
+                total+=rmax-arr[r];
+            }
+            r--;
+        }
+    }
+return total;
+    
+}
+
+int main(){
+    vector<int>arr = {3,1,3};
+    int x = trapped(arr);
+    cout<<"ssssss"<<x;
+}
