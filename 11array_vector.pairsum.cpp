@@ -76,7 +76,7 @@ int main(){
     cout << "Pairs that sum to " << target << ":" << endl;
      size;
     // Find pairs that sum to target
-    for(int i = 0; i < i++){
+    for(int i = 0; i <size; i++){
         int element = arr[i];
         
         for(int j = i + 1; j < size; j++){

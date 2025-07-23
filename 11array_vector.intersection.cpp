@@ -125,7 +125,7 @@ using namespace std;
         }
 
         for(int y : arr2){
-            if(freq[y]-- > 0){
+            if(freq[y]-- > 0){               /*freq> 0 then freq--*/ 
                 ans.push_back(y);
                 
             }
