@@ -119,6 +119,23 @@ int main(){
         cout << num << " ";
     }
     cout << endl;
+
+
+    ///-------------reserve-------
+
+    vector<int>uniona;
+    uniona.reserve(test1.size()+test2.size());
+    
+    for(auto x : test1){
+        uniona.push_back(x);
+    }
+    for(auto x : test2){
+        uniona.push_back(x);
+    }
+    for(auto x:uniona){
+        cout<<x<<" ";
+    }
+
     
     return 0;
 }
