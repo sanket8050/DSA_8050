@@ -5,7 +5,7 @@ TITLE: Find Unique Element Using XOR Operation
 
 DESCRIPTION:
 This program finds the unique element in an array where all other elements
-appear twice except one. It uses the XOR (exclusive OR) operation to efficiently
+appear twice except one.sive OR) operation to efficiently
 identify the single element.
 
 LOGIC:
