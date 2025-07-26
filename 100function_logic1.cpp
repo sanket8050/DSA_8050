@@ -68,7 +68,7 @@ int main() {
 
 
 /*
-🧠 Complete Interview Answers for Poison Bottle Problem
+ Complete Interview Answers for Poison Bottle Problem
 1. Problem Variations
 Q: What if you had 1000 bottles but only 3 rats?
 A: Impossible to solve reliably. With 3 rats, you can only create 2³ = 8 different death patterns (000, 001, 010, 011, 100, 101, 110, 111). This means you can only distinguish between 8 bottles maximum. For 1000 bottles, you need at least ⌈log₂(1000)⌉ = 10 rats.
@@ -107,7 +107,8 @@ A: All rats survive (death pattern = 0000000000), indicating bottle 0. If using 
 Q: Code this without using bitset
 A:
 
-cpp
+cpp'
+*/
 #include<iostream>
 using namespace std;
 
@@ -133,6 +134,8 @@ int main(){
     cout << "Poisoned bottle: " << result << endl;
     return 0;
 }
+   
+   /*
 Q: Implement using only arrays, no bit operations
 A:
 
@@ -415,7 +418,7 @@ Memory Aid:
 The interviewer tests "without STL" to see if you understand that bitset is just a convenience wrapper around basic bit operations. The real algorithm is the bit manipulation, not the STL containers!
 
 
-
+*/
 
 
 
