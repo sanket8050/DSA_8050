@@ -62,7 +62,47 @@ bool palimdrom(char arr[]){
 	}
 	return 1;
 }
-int main(){
-	char arr[100] = "())(";
+int mainv(){
+	char arr[100] = "raceca";
 	cout<<palimdrom(arr);
 }
+
+
+
+
+
+
+
+// #include<iostream>
+// using namespace std;
+
+
+// int count(char arr[]){
+// 	int count = 0; 
+// 	int j = 0;
+// 	while(arr[j] != '\0'){
+// 		count ++ ;
+// 		j++;
+// 	}
+// 	return count;
+
+
+// }
+// int palindrom( char arr[]){
+// 	int i = 0;
+// 	int  j = count(arr)-1;
+// 	while(i <= j){
+// 		if(arr[i] == arr[j]){
+// 			i++;
+// 			j--;
+// 		}
+// 		else{
+// 			return 0;
+// 		}
+// 	}
+// 	return 1;
+// }
+// int main(){
+// 	char arr[100] = "asfs";
+// 	cout<<palindrom(arr);
+// }
