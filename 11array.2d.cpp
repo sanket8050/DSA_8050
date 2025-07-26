@@ -58,7 +58,7 @@ SPACE COMPLEXITY: O(rows × cols)
 using namespace std;
 
 int main(){
-    // Method 1: Static initialization with visualization
+// Method 1: Static initialization with visualization
     int arr[3][3] = {{1, 2, 3},    // Row 0
                      {4, 5, 6},    // Row 1
                      {7, 8, 9}};   // Row 2
