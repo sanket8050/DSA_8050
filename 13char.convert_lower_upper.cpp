@@ -128,3 +128,12 @@ int main(){
     convertLowerToUpper(test3);
     cout << test3 << endl;
 }
+
+
+// #include<iostream>
+// using namespace std;
+
+// int main(){
+//     char arr[18] = "sanket is d";
+//     cout<<arr;
+// }
