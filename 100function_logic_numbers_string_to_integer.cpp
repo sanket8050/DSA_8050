@@ -65,7 +65,7 @@ int wordsToNumber(string input) {
     };
 
     unordered_map<string, int> multiplier = {
-        {"hundred", 100}, {"thousand", 1000}, {"million", 1000000}
+        {"hundred", 100}, {"thousand", 1000}, {"lakh",100000},{"million", 1000000}
     };
 
     string word;
@@ -81,7 +81,7 @@ int wordsToNumber(string input) {
             current *= multiplier[word];
 
             // For larger multipliers, store partial result and reset current
-            if (word == "thousand" || word == "million") {
+            if (word == "thousand" || word == "million" || word =="lakh") {
                 result += current;
                 current = 0;
             }
@@ -94,7 +94,7 @@ int wordsToNumber(string input) {
 
 int main() {
     string input1 = "hundred";
-    string input2 = "two thousand five hundred sixty six";
+    string input2 = "one lakh fifty five thousand ninety seven";
 
     cout << "Input: \"" << input1 << "\" → Output: " << wordsToNumber(input1) << endl;
     cout << "Input: \"" << input2 << "\" → Output: " << wordsToNumber(input2) << endl;
@@ -107,74 +107,75 @@ int main() {
 
 //---------------------------------------
 
-#include<iostream>
-#include<unordered_map>
-#include<sstream>
-#include<vector>
-#include<string>
+// #include<iostream>
+// #include<unordered_map>
+// #include<sstream>
+// #include<vector>
+// #include<string>
 
-int function(string input){
+// int function(string input){
 
-    unordered_map<string , int>nummap = {
+//     unordered_map<string , int>nummap = {
 
-        {"zero",0},
-        {"one",1},
-        {"two",2},
-        {"three",3},
-        {"four",4},
-        {"five",5},
-        {"six",6},
-        {"seven",7},
-        {"eight",8},
-        {"nine",9},
-        {"ten",10},
-        {"eleven",11},
-        {"twelve",12},
-        {"thirteen",13},
-        {"forteen",14},
-        {"fifteen",15},
-        {"sixteen",16},
-        {"seventeen",17},
-        {"eighteen",18},
-        {"nineteen",19},
-        {"twenty",20},
-        {"thirty",30},
-        {"forty",40},
-        {"fifty",50},
-        {"sixty",60},
-        {"seventy",70},
-        {"eighty",80},
-        {"ninety",90}
-    };
+//         {"zero",0},
+//         {"one",1},
+//         {"two",2},
+//         {"three",3},
+//         {"four",4},
+//         {"five",5},
+//         {"six",6},
+//         {"seven",7},
+//         {"eight",8},
+//         {"nine",9},
+//         {"ten",10},
+//         {"eleven",11},
+//         {"twelve",12},
+//         {"thirteen",13},
+//         {"forteen",14},
+//         {"fifteen",15},
+//         {"sixteen",16},
+//         {"seventeen",17},
+//         {"eighteen",18},
+//         {"nineteen",19},
+//         {"twenty",20},
+//         {"thirty",30},
+//         {"forty",40},
+//         {"fifty",50},
+//         {"sixty",60},
+//         {"seventy",70},
+//         {"eighty",80},
+//         {"ninety",90}
+//     };
 
-    unordered_map<string,int>multiplyer = {
-        {"hundred",100},
-        {"thousand",1000}
-    };
+//     unordered_map<string,int>multiplyer = {
+//         {"hundred",100},
+//         {"thousand",1000},
+//         {"lakh",100000}
+//     };
 
-    string word;
-    istringstream iss(input);
-    int current =0;
-    int result = 0;
+//     string word;
+//     istringstream iss(input);
+//     int current =0;
+//     int result = 0;
 
     
-    while(iss >> word){
+//     while(iss >> word){
         
-        if(nummap.count(word)){
-            current += nummap[word];
+//         if(nummap.count(word)){
+//             current += nummap[word];
 
-        }
-        else if(multiplyer.count(word)){
-            current *= multiplyer[word];
+//         }
+//         else if(multiplyer.count(word)){
+//             current *= multiplyer[word];
 
-            if(word == "hundred" ||  word=="thousand"){
-                result += current;
-                current = 0;
+//             if(word == "hundred" ||  word=="thousand" || word "lakh"){
+//                 result += current;
+//                 current = 0;
 
-            }
-        }
-    }
-    return result;
+//             }
+//         }
+//     }
+//     return result;
 
 
-}
+// }
