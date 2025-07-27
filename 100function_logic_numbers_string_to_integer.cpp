@@ -93,8 +93,8 @@ int wordsToNumber(string input) {
 }
 
 int main() {
-    string input1 = "hundred";
-    string input2 = "one lakh fifty five thousand ninety seven";
+    string input1 = "twelve thousand five hundred fifty six";
+    string input2 = "sixty six million one lakh fifty five thousand ninety seven";
 
     cout << "Input: \"" << input1 << "\" → Output: " << wordsToNumber(input1) << endl;
     cout << "Input: \"" << input2 << "\" → Output: " << wordsToNumber(input2) << endl;

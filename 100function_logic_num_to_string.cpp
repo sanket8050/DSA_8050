@@ -1,181 +1,277 @@
-#include<iostream>
-#include<vector>
-#include<unordered_map>
-using namespace std;
+    #include<iostream>
+    #include<vector>
+    #include<unordered_map>
+    using namespace std;
 
-string function(int num){
-    unordered_map<int,string>nummap = {
+    string function(int num){
+        unordered_map<int,string>nummap = {
 
-        {0,"zero"},
-        {1,"one"},
-        {2,"two"},
-        {3,"three"},
-        {4,"four"},
-        {5,"five"},
-        {6,"six"},
-        {7,"seven"},
-        {8,"eight"},
-        {9,"nine"},
-        {10,"ten"},
-        {11,"eleven"},
-        {12,"twelve"},
-        {13,"thirteen"},
-        {14,"fourteen"},
+            {0,"zero"},
+            {1,"one"},
+            {2,"two"},
+            {3,"three"},
+            {4,"four"},
+            {5,"five"},
+            {6,"six"},
+            {7,"seven"},
+            {8,"eight"},
+            {9,"nine"},
+            {10,"ten"},
+            {11,"eleven"},
+            {12,"twelve"},
+            {13,"thirteen"},
+            {14,"fourteen"},
 
-        {15,"fifteen"},
-        {16,"sixteen"},
-        {17,"seventeen"},
-        {18,"eighteen"},
-        {19,"nineteen"},
-        {20,"twenty"},
-        {30,"thirty"},
-        {40,"forty"},
-        {50,"fifty"},
-        {60,"sixty"},
-        {70,"seventy"},
-        {80,"eighty"},
-        {90,"ninety"},
-        {100,"hundred"}
-    };
+            {15,"fifteen"},
+            {16,"sixteen"},
+            {17,"seventeen"},
+            {18,"eighteen"},
+            {19,"nineteen"},
+            {20,"twenty"},
+            {30,"thirty"},
+            {40,"forty"},
+            {50,"fifty"},
+            {60,"sixty"},
+            {70,"seventy"},
+            {80,"eighty"},
+            {90,"ninety"},
+            {100,"hundred"}
+        };
 
-    unordered_map<int,string>multiplyer = {
-
-        {1000,"thousand"},
-        {100,"hundred"}
-    };
     
+        
 
-    string s = to_string(num);
-    if(nummap.count(num)) return nummap[num];
-    else if(s.length()==2 ){
-        if(nummap.count(num)){
-            return nummap[num];
+        string s = to_string(num);
+        if(nummap.count(num)) return nummap[num];
+        else if(s.length()==2 ){
+            if(nummap.count(num)){
+                return nummap[num];
+            }
+            else{
+            int tens = (num/10)*10 ;
+            int unit = (num%10);
+            string result;
+        
+            if(tens!=0) result += nummap[tens]+" ";
+            if(unit!=0) result += nummap[unit];
+            return result;
+            }
         }
-        else{
-        int tens = (num/10)*10 ;
-        int unit = (num%10);
-        string result;
-      
-        if(tens!=0) result += nummap[tens];
-        if(unit!=0) result += nummap[unit];
-        return result;
+        else if(s.length()==3){
+            int ori = num;
+            
+
+            int hun = (ori / 100);
+            
+            ori = ori-hun*100;
+            int tens = (ori/10)*10 ;
+            
+            int unit = (ori%10);
+            string result;
+            if(hun!=0) result += nummap[hun]+" hundred ";
+            if(tens!=0) result += nummap[tens]+" ";
+            if(unit!=0) result += nummap[unit];
+            
+            return result;
         }
-    }
-    else if(s.length()==3){
-        int ori = num;
-        
-
-        int hun = (ori / 100);
-        
-        ori = ori-hun*100;
-        int tens = (ori/10)*10 ;
-        
-        int unit = (ori%10);
-        string result;
-        if(hun!=0) result += nummap[hun]+" hundred ";
-        if(tens!=0) result += nummap[tens]+" ";
-        if(unit!=0) result += nummap[unit];
-        
-        return result;
-    }
-    else if(s.length()==4){
-        int ori = num;
-        
-        int s = (ori/1000);
-        cout<<s;
-       
-        int hun = (ori % 1000)/100;
-        int tens = ((ori%100)/10)*10;
-        int unit = (ori%10);
-
-        string result;
-        if(s!= 0) result += nummap[s]+" thousand ";
-        if(hun!=0) result += nummap[hun]+" hundred ";
-        if(tens!=0) result += nummap[tens]+" ";
-        if(unit!=0) result += nummap[unit];
-
-        cout<<s<<endl;
-        return result;
-        
-    }
-
-    else if(s.length()==5){
-        if(nummap.count(num/1000)){
+        else if(s.length()==4){
             int ori = num;
             
             int s = (ori/1000);
-            
+            cout<<s;
         
             int hun = (ori % 1000)/100;
             int tens = ((ori%100)/10)*10;
             int unit = (ori%10);
 
-            string result ="";
+            string result;
             if(s!= 0) result += nummap[s]+" thousand ";
             if(hun!=0) result += nummap[hun]+" hundred ";
-            if(tens!=0) result += nummap[s];
+            if(tens!=0) result += nummap[tens]+" ";
             if(unit!=0) result += nummap[unit];
 
+            cout<<s<<endl;
+            return result;
             
-            return result;
-
         }
 
-        else{
+        else if(s.length()==5){
+            if(nummap.count(num/1000)){
+                int ori = num;
+                
+                int s = (ori/1000);
+                
+            
+                int hun = (ori % 1000)/100;
+                int tens = ((ori%100)/10)*10;
+                int unit = (ori%10);
+
+                string result ="";
+                if(s!= 0) result += nummap[s]+" thousand ";
+                if(hun!=0) result += nummap[hun]+" hundred ";
+                if(tens!=0) result += nummap[tens]+" ";
+                if(unit!=0) result += nummap[unit];
+
+                
+                return result;
+
+            }
+
+            else{
+                int ori = num;
+                int s = (num/10000)*10;
+            
+                int y = (ori/1000) % 10;
+
+                int hun = (ori % 1000)/100;
+                int tens = ((ori%100)/10)*10;
+                int unit = (ori%10);
+                string result;
+                if(s!=0) result+=nummap[s]+" "; 
+                if(y!=0) result+=nummap[y]+" thousand "; 
+                if(hun!=0) result+=nummap[hun]+" hundred "; 
+                if(tens!=0) result+=nummap[tens]+" "; 
+                if(unit!=0) result+=nummap[unit]; 
+
+                return result;
+            }
+        
+        }
+        else if(s.length()==6){
             int ori = num;
-            int s = (num/10000)*10;
-           
-            int y = (ori/1000) % 10;
+                int x = ori/100000;
+                ori = ori-x*100000;
+                int s = (ori/10000)*10;
+            
+                int y = (ori/1000) % 10;
 
-            int hun = (ori % 1000)/100;
-            int tens = ((ori%100)/10)*10;
-            int unit = (ori%10);
-            string result;
-            if(s!=0) result+=nummap[s]+" "; 
-            if(y!=0) result+=nummap[y]+" thousand "; 
-            if(hun!=0) result+=nummap[hun]+" hundred "; 
-            if(tens!=0) result+=nummap[tens]+" "; 
-            if(unit!=0) result+=nummap[unit]; 
+                int hun = (ori % 1000)/100;
+                int tens = ((ori%100)/10)*10;
+                int unit = (ori%10);
+                string result;
+                if(x!=0) result+=nummap[x]+" lakh ";
+                if((ori/1000)%10>0 && (ori/10000)%10>0){
+                    result+=nummap[s]+" "+nummap[y]+" thousand "; 
 
-            return result;
+                    
+                }
+                else if ((ori/1000)%10 != 0 && (ori/10000)%10==0 ){
+                    
+                        result += nummap[y]+" thousand ";
+                   
+                    
+                }
+                else if((ori/1000)%10 == 0 && (ori/10000)%10!=0 ){
+                    result += nummap[s]+" thousand ";
+                }
+
+            
+                if(hun!=0) result+=nummap[hun]+" hundred "; 
+                if(tens!=0) result+=nummap[tens]+" "; 
+                if(unit!=0) result+=nummap[unit]; 
+
+                return result;
+
         }
-    
-    }
-    else if(s.length()==6){
-        int ori = num;
-            int x = ori/100000;
-            ori = ori-x*100000;
-            int s = (ori/10000)*10;
-           
-            int y = (ori/1000) % 10;
+        
 
-            int hun = (ori % 1000)/100;
-            int tens = ((ori%100)/10)*10;
-            int unit = (ori%10);
-            string result;
-            if(x!=0) result+=nummap[x]+" lakhs ";
-            if(s!=0) result+=nummap[s]+" "+nummap[y]+" thousand "; 
-            if(hun!=0) result+=nummap[hun]+" hundred "; 
-            if(tens!=0) result+=nummap[tens]+" "; 
-            if(unit!=0) result+=nummap[unit]; 
-
-            return result;
 
     }
-    
+
+    int main(){
+        // string x = "00008";
+        // int d = stoi(x);
+        // string y = function(d);
+        // cout<<y;
+
+        int x = 100000   ;
+        // cin>>x;
+        string y = function(x);
+        cout<<y;
+
+    }
 
 
+
+
+    //===============================================================================
+    //-----------------------grok output with clean code-----------------------------
+    //===============================================================================
+
+#include <iostream>
+#include <vector>
+#include<cmath>
+#include <unordered_map>
+using namespace std;
+
+string function(int num) {
+    unordered_map<int, string> nummap = {
+        {0, "zero"}, {1, "one"}, {2, "two"}, {3, "three"}, {4, "four"},
+        {5, "five"}, {6, "six"}, {7, "seven"}, {8, "eight"}, {9, "nine"},
+        {10, "ten"}, {11, "eleven"}, {12, "twelve"}, {13, "thirteen"}, {14, "fourteen"},
+        {15, "fifteen"}, {16, "sixteen"}, {17, "seventeen"}, {18, "eighteen"}, {19, "nineteen"},
+        {20, "twenty"}, {30, "thirty"}, {40, "forty"}, {50, "fifty"}, {60, "sixty"},
+        {70, "seventy"}, {80, "eighty"}, {90, "ninety"}, {100, "hundred"}, {1000, "thousand"}
+    };
+
+    if (num < 0 || num > 999999) return "Number out of range";
+    if (num == 0) return "zero";
+
+    string result;
+    int digits = num == 0 ? 1 : log10(num) + 1;
+
+    if (digits == 1) {
+        return nummap[num];
+    } else if (digits == 2) {
+        if (nummap.count(num)) return nummap[num];
+        int tens = (num / 10) * 10;
+        int unit = num % 10;
+        if (tens != 0) result += nummap[tens] + " ";
+        if (unit != 0) result += nummap[unit];
+    } else if (digits == 3) {
+        int hun = num / 100;
+        int rest = num % 100;
+        if (hun != 0) result += nummap[hun] + " hundred ";
+        if (rest != 0) result += function(rest); // Recursive call for tens/units
+    } else if (digits == 4) {
+        int thou = num / 1000;
+        int rest = num % 1000;
+        if (thou != 0) result += nummap[thou] + " thousand ";
+        if (rest != 0) result += function(rest);
+    } else if (digits == 5) {
+        int ten_thou = (num / 1000);
+        int rest = num % 1000;
+        if (ten_thou != 0) result += function(ten_thou) + " thousand ";
+        if (rest != 0) result += function(rest);
+    } else if (digits == 6) {
+        int lakh = num / 100000;
+        int rest = num % 100000;
+        if (lakh != 0) result += nummap[lakh] + " lakh ";
+        if (rest != 0) result += function(rest);
+    }
+
+    // Trim trailing space
+    if (!result.empty() && result.back() == ' ') result.pop_back();
+    return result;
 }
 
-int main(){
-    // string x = "00008";
-    // int d = stoi(x);
-    // string y = function(d);
-    // cout<<y;
-
-    int x = 999999;
-    // cin>>x;
+int main() {
+    int x = 100000;
     string y = function(x);
-    cout<<y;
-
+    cout << y << endl;
+    return 0;
 }
+
+
+
+/*
+//------------/*
+
+in cpp include<cmath> and log10(num) gives number of digit in the interger
+
+int digits = num == 0 ? 1 : log10(num) + 1;
+
+or int digits = countDigits(num);
+
+
+*/
