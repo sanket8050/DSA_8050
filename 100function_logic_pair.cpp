@@ -1,7 +1,7 @@
 #include <iostream>
 #include <unordered_map>
 #include <vector>
-#include <algorithm>
+#include <algorithm> 
 using namespace std;
 
 int function(const string&s){
@@ -20,7 +20,7 @@ int function(const string&s){
     for(auto&c : vec){
         cout << c.first<<" ";
     }
-    cout<<"xxxxxxxxxxxxxxxxxxxx"<<endl;
+        
 }
 
 /*
