@@ -73,7 +73,7 @@ string function(int num){
         int unit = (ori%10);
         string result;
         if(hun!=0) result += nummap[hun]+" hundred ";
-        if(tens!=0) result += nummap[tens];
+        if(tens!=0) result += nummap[tens]+" ";
         if(unit!=0) result += nummap[unit];
         
         return result;
@@ -91,7 +91,7 @@ string function(int num){
         string result;
         if(s!= 0) result += nummap[s]+" thousand ";
         if(hun!=0) result += nummap[hun]+" hundred ";
-        if(tens!=0) result += nummap[s];
+        if(tens!=0) result += nummap[tens]+" ";
         if(unit!=0) result += nummap[unit];
 
         cout<<s<<endl;
@@ -147,14 +147,14 @@ string function(int num){
             ori = ori-x*100000;
             int s = (ori/10000)*10;
            
-            int y = (ori/10) % 10;
+            int y = (ori/1000) % 10;
 
             int hun = (ori % 1000)/100;
             int tens = ((ori%100)/10)*10;
             int unit = (ori%10);
             string result;
             if(x!=0) result+=nummap[x]+" lakhs ";
-            if(s!=0) result+=nummap[s]+" thousand "; 
+            if(s!=0) result+=nummap[s]+" "+nummap[y]+" thousand "; 
             if(hun!=0) result+=nummap[hun]+" hundred "; 
             if(tens!=0) result+=nummap[tens]+" "; 
             if(unit!=0) result+=nummap[unit]; 
@@ -173,7 +173,8 @@ int main(){
     // string y = function(d);
     // cout<<y;
 
-    int x=954000;
+    int x = 999999;
+    // cin>>x;
     string y = function(x);
     cout<<y;
 
