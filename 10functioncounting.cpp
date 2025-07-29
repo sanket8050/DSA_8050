@@ -66,7 +66,7 @@ int counting(int n){
 }
 
 
-int main(){
+int mvain(){
 	int n;
 	cout<<"enter the limit :";
 	cin>>n;
@@ -76,12 +76,12 @@ int main(){
 //-----------------------by using while loop-------------
 
 int main(){
-	int n;
+	int n=20;
 	//cin>>n;
 	
 	int a= 0;
-	while(a<=n){
+	while(a<n){
 		cout<<++a;
-		a++;
+		
 	}
 }
