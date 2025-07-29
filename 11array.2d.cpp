@@ -31,7 +31,7 @@ PRINTING 2D ARRAY:
 - Inner loop: columns
 - Add newline after each row
 
-EXAMPLE:
+EXAMPLE: 
 Input: 3x3 array
 [1 2 3]
 [4 5 6]
