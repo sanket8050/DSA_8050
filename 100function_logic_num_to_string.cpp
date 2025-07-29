@@ -223,7 +223,7 @@ string function(int num) {
     if (digits == 1) {
         return nummap[num];
     } else if (digits == 2) {
-        if (nummap.count(num)) return nummap[num];
+         if (nummap.count(num)) return nummap[num];
         int tens = (num / 10) * 10;
         int unit = num % 10;
         if (tens != 0) result += nummap[tens] + " ";
