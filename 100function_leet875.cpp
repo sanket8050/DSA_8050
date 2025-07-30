@@ -34,10 +34,10 @@ using namespace std;
 
 class Solution {
 public:
-    bool caneat(vector<int>& piles, int h, int k) {
+    bool caneat(vector<int>& piles, int h, int mid) {
         int hours = 0;
         for (int pile : piles) {
-            hours += (pile + k - 1) / k; // equivalent to ceil(pile / k)
+            hours += (pile + mid - 1) / mid; // equivalent to ceil(pile / k)
         }
         return hours <= h;
     }
