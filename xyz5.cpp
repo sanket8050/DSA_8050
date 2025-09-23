@@ -1,11 +1,29 @@
 #include<iostream>
+#include<vector>
 using namespace std;
+
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        
+        int n = digits.size()-1;
+        int ans = 0;
+        
+        for(int i =0;i<=n;i++){
+            ans = ans*10 + digits[i];
+
+        }
+        
+
+
+        
+    }
+};
+
 int main(){
-	for(int i=0;i<7;i++){
-		for(int j=0;j<7-i;j++){
-			cout<<j-7;
-		}
-		cout<<endl;
-	}
+vector<int>arr = {9,9,9};
+Solution obj;
+obj.plusOne(arr);
+	
 	
 }
