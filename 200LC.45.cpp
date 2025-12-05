@@ -19,7 +19,7 @@ int jum(vector<int>&arr){
 }
 
 int main(){
-    vector<int>arr = {1,2,3,4,5,2,1,2};
+    vector<int>arr = {3,2,1,0,4};
     int x = jum(arr);
     cout<<x;
 }
