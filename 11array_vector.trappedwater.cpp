@@ -87,7 +87,7 @@ int trappedWater(vector<int>& arr){
     return total_water;
 }
 
-int mainc(){
+int main(){
     vector<int> arr = {3, 2, 1, 0, 1, 2, 3};
     
     cout << "Height array: ";
@@ -158,7 +158,8 @@ int trapped(const vector<int>arr){
     int n = arr.size();   
     int lmax = arr[0];
     int rmax = arr[n-1]; 
-    int i = 1;int  r = n-2;
+    int i = 1;
+    int r = n-2;
     int total = 0;
 
     while(i <= r){
