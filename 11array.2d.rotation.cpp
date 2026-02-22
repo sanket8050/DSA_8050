@@ -52,6 +52,8 @@ SPACE COMPLEXITY: O(1) - printing directly
 ================================================================================
 */
 
+// array rotation
+
 #include<iostream>
 using namespace std;
 
