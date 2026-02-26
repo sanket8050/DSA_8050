@@ -9,6 +9,8 @@ int main() {
     int num = 1;
     
     // Fill diagonals from top-left to bottom-right
+
+
     for (int diagonal = 0; diagonal < 2 * n - 1; diagonal++) {
         if (diagonal < n) {
             // Upper half diagonals (including main diagonal)
@@ -28,6 +30,7 @@ int main() {
     }
     
     // Print the matrix
+    
 
     
     cout << "Matrix filled in diagonal order:" << endl;

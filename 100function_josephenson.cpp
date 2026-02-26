@@ -11,9 +11,9 @@ int safest(int n,int k){
 }
 
 int main(){
-    int n =19;
+    int n =33;
     // cin>>n;
-    int  k =2;
+    int  k =1;
     // cin >> k;
     int ans = safest(n,k);
     cout<<"i will stand at: "<<ans ;
